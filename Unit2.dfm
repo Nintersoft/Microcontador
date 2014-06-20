@@ -5,7 +5,7 @@ object Form2: TForm2
   BorderStyle = bsToolWindow
   Caption = 'Microcontador'
   ClientHeight = 172
-  ClientWidth = 186
+  ClientWidth = 190
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
