@@ -10,9 +10,9 @@
 #include "Unit5.h"
 #include "Unit6.h"
 
-int varredura (int);
 int conf (int);
 
+int varredura (int);
 int h=0, m=0, s=0, c=0, linha=3, linhas=5;
 float idioma;
 
@@ -280,6 +280,7 @@ int conf (int linhas){
 		Form3->Memo2->Lines->Strings[linhas] = "3";
 		linhas++;
 	}
+		Form3->Memo2->Lines->SaveToFile("..\\config\\interface.conf");
 	linhas = 5;
 return 0;
 }
