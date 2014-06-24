@@ -19,7 +19,7 @@ int visualconf (int);
 void define ();
 
 //---------------------------------------------------------------------------
-int c=1, a=0, lin = 5, def=0, linha = 3;
+int c=1, a=0, lin = 5, linha = 3;
 //---------------------------------------------------------------------------
 __fastcall TForm2::TForm2(TComponent* Owner)
 	: TForm(Owner)
@@ -76,84 +76,85 @@ void __fastcall TForm2::Button3Click(TObject *Sender)
 
 int visualconf (int lin) {
 	if (Form2->Memo1->Lines->Strings[lin] == "true") {
-	Form3->CheckBox1->Checked = true;
-	lin++;
+		Form3->CheckBox1->Checked = true;
+		lin++;
 	}
 	if (Form2->Memo1->Lines->Strings[lin] == "false") {
-	Form3->CheckBox1->Checked = false;
-	lin++;
+		Form3->CheckBox1->Checked = false;
+		lin++;
 	}
 	else if (Form2->Memo1->Lines->Strings[lin] != "false" && Form2->Memo1->Lines->Strings[lin] == "true") {
-	lin++;
+		lin++;
 	}
 	if (Form2->Memo1->Lines->Strings[lin] == "true") {
-	Form3->CheckBox2->Checked = true;
-	lin++;
+		Form3->CheckBox2->Checked = true;
+		lin++;
 	}
 	if (Form2->Memo1->Lines->Strings[lin] == "false") {
-	Form3->CheckBox2->Checked = false;
-	lin++;
+		Form3->CheckBox2->Checked = false;
+		lin++;
 	}
 	else if (Form2->Memo1->Lines->Strings[lin] != "false" && Form2->Memo1->Lines->Strings[lin] == "true") {
-	lin++;
+		lin++;
 	}
 	if (Form2->Memo1->Lines->Strings[lin] == "true") {
-	Form3->CheckBox3->Checked = true;
-	lin++;
+		Form3->CheckBox3->Checked = true;
+		lin++;
 	}
 	if (Form2->Memo1->Lines->Strings[lin] == "false") {
-	Form3->CheckBox3->Checked = false;
-	lin++;
+		Form3->CheckBox3->Checked = false;
+		lin++;
 	}
 	else if (Form2->Memo1->Lines->Strings[lin] != "false" && Form2->Memo1->Lines->Strings[lin] == "true") {
-	lin++;
+		lin++;
 	}
 	if (Form2->Memo1->Lines->Strings[lin] == "1") {
-	Form3->RadioButton1->Checked = true;
-	Form3->RadioButton2->Checked = false;
-	Form3->RadioButton3->Checked = false;
-	lin++;
+		Form3->RadioButton1->Checked = true;
+		Form3->RadioButton2->Checked = false;
+		Form3->RadioButton3->Checked = false;
+		lin++;
 	}
 	if (Form2->Memo1->Lines->Strings[lin] == "2") {
-	Form3->RadioButton2->Checked = true;
-	Form3->RadioButton1->Checked = false;
-	Form3->RadioButton3->Checked = false;
+		Form3->RadioButton2->Checked = true;
+		Form3->RadioButton1->Checked = false;
+		Form3->RadioButton3->Checked = false;
 	lin++;
 	}
 	if (Form2->Memo1->Lines->Strings[lin] == "3") {
-	Form3->RadioButton3->Checked = true;
-	Form3->RadioButton1->Checked = false;
-	Form3->RadioButton2->Checked = false;
-	lin++;
+		Form3->RadioButton3->Checked = true;
+		Form3->RadioButton1->Checked = false;
+		Form3->RadioButton2->Checked = false;
+		lin++;
 	}
-	else if (Form2->Memo1->Lines->Strings[lin] == "1" && Form2->Memo1->Lines->Strings[lin] == "2" && Form2->Memo1->Lines->Strings[lin] == "3") {
-	lin++;
+	else if (Form2->Memo1->Lines->Strings[lin] != "1" && Form2->Memo1->Lines->Strings[lin] != "2" && Form2->Memo1->Lines->Strings[lin] != "3") {
+		lin++;
 	}
 	if (Form2->Memo1->Lines->Strings[lin] == "1") {
-	Form3->RadioButton4->Checked = true;
-	Form3->RadioButton5->Checked = false;
-	Form3->RadioButton6->Checked = false;
-	lin++;
+		Form3->RadioButton4->Checked = true;
+		Form3->RadioButton5->Checked = false;
+		Form3->RadioButton6->Checked = false;
+		lin++;
 	}
 	if (Form2->Memo1->Lines->Strings[lin] == "2") {
-	Form3->RadioButton5->Checked = true;
-	Form3->RadioButton4->Checked = false;
-	Form3->RadioButton6->Checked = false;
-	lin++;
+		Form3->RadioButton5->Checked = true;
+		Form3->RadioButton4->Checked = false;
+		Form3->RadioButton6->Checked = false;
+		lin++;
 	}
 	if (Form2->Memo1->Lines->Strings[lin] == "3") {
-	Form3->RadioButton6->Checked = true;
-	Form3->RadioButton4->Checked = false;
-	Form3->RadioButton5->Checked = false;
-	lin++;
+		Form3->RadioButton6->Checked = true;
+		Form3->RadioButton4->Checked = false;
+		Form3->RadioButton5->Checked = false;
+		lin++;
 	}
-	else if (Form2->Memo1->Lines->Strings[lin] == "1" && Form2->Memo1->Lines->Strings[lin] == "2" && Form2->Memo1->Lines->Strings[lin] == "3") {
-	lin++;
+	else if (Form2->Memo1->Lines->Strings[lin] != "1" && Form2->Memo1->Lines->Strings[lin] != "2" && Form2->Memo1->Lines->Strings[lin] != "3") {
+		lin++;
 	}
 	if (Form2->Memo1->Lines->Strings[lin] == "true") {
-	Form3->CheckBox4->Checked = true;
-	lin++;
+		Form3->CheckBox4->Checked = true;
+		lin++;
 	}
+	define();
 	lin = 5;
 return 0;
 }
@@ -191,11 +192,11 @@ void define (){
 		Form2->Edit1->Top-=34;
 		Form2->ProgressBar1->Top-=34;
 	}
-	if (Form3->CheckBox3->Checked==true && Application->MainFormOnTaskBar == false ) {
-		Application->MainFormOnTaskBar=true;
+	if (Form3->CheckBox3->Checked == false && Application->MainFormOnTaskBar == false ) {
+		Application->MainFormOnTaskBar = true;
 	}
-	else {
-		Application->MainFormOnTaskBar=false;
+	else if (Form3->CheckBox3->Checked == true && Application->MainFormOnTaskBar == true ){
+		Application->MainFormOnTaskBar = false;
 	}
 	if ( Form3->RadioButton1->Checked == true ) {
 		Form2->BorderStyle=bsToolWindow;
@@ -207,38 +208,24 @@ void define (){
 		Form2->BorderStyle=bsSingle;
 	}
 	if (Form3->RadioButton4->Checked == true) {
-        lin++;
+//--Apenas um condicional para confirmar _ Just a confirmation conditional --
 	}
 	if (Form3->RadioButton5->Checked == true) {
 		Form3->Memo1->Lines->LoadFromFile("..\\idiomas\\en.idioma");
 		varredura(linha);
-		lin++;
 	}
 	if (Form3->RadioButton6->Checked == true) {
 		Form3->Memo1->Lines->LoadFromFile("..\\idiomas\\edit.idioma");
 		varredura(linha);
-		lin++;
 	}
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm2::Timer3Timer(TObject *Sender)
 {
-	if (def == 0) {
-		def++;
-	}
-	else {
-		if (FileExists("..\\config\\interface.conf")) {
-			define();
-		}
-			Timer3->Enabled = false;
-    }
-}
-//---------------------------------------------------------------------------
-void __fastcall TForm2::FormShow(TObject *Sender)
-{
 	if (FileExists("..\\config\\interface.conf")) {
 		visualconf(lin);
 	}
+		Timer3->Enabled = false;
 }
 //---------------------------------------------------------------------------
 int varredura (int linha){
@@ -331,6 +318,13 @@ int varredura (int linha){
 		Form6->Fechar1->Caption = Form3->Memo1->Lines->Strings[linha];
 		linha++;
 		linha = 3;
+		Form1->Refresh();
+		Form2->Refresh();
+		Form3->Refresh();
+		Form4->Refresh();
+		Form5->Refresh();
+		Form6->Refresh();
+		ShowMessage("Sucesso!");
 return 0;
 }
 //---------------------------------------------------------------------------

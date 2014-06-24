@@ -487,7 +487,6 @@ object Form2: TForm2
     00000000FFFF000000000000FFFF}
   OldCreateOrder = False
   Position = poDefault
-  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
@@ -602,7 +601,7 @@ object Form2: TForm2
     Top = 168
   end
   object Timer3: TTimer
-    Interval = 2000
+    Interval = 500
     OnTimer = Timer3Timer
     Left = 184
     Top = 168
