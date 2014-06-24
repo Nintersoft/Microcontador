@@ -75,6 +75,7 @@ void __fastcall TForm2::Button3Click(TObject *Sender)
 //---------------------------------------------------------------------------
 
 int visualconf (int lin) {
+	lin = 5;
 	if (Form2->Memo1->Lines->Strings[lin] == "true") {
 		Form3->CheckBox1->Checked = true;
 		lin++;
@@ -83,7 +84,7 @@ int visualconf (int lin) {
 		Form3->CheckBox1->Checked = false;
 		lin++;
 	}
-	else if (Form2->Memo1->Lines->Strings[lin] != "false" && Form2->Memo1->Lines->Strings[lin] == "true") {
+	else if (Form2->Memo1->Lines->Strings[lin] != "false" && Form2->Memo1->Lines->Strings[lin] != "true") {
 		lin++;
 	}
 	if (Form2->Memo1->Lines->Strings[lin] == "true") {
@@ -94,7 +95,7 @@ int visualconf (int lin) {
 		Form3->CheckBox2->Checked = false;
 		lin++;
 	}
-	else if (Form2->Memo1->Lines->Strings[lin] != "false" && Form2->Memo1->Lines->Strings[lin] == "true") {
+	else if (Form2->Memo1->Lines->Strings[lin] != "false" && Form2->Memo1->Lines->Strings[lin] != "true") {
 		lin++;
 	}
 	if (Form2->Memo1->Lines->Strings[lin] == "true") {
@@ -105,7 +106,7 @@ int visualconf (int lin) {
 		Form3->CheckBox3->Checked = false;
 		lin++;
 	}
-	else if (Form2->Memo1->Lines->Strings[lin] != "false" && Form2->Memo1->Lines->Strings[lin] == "true") {
+	else if (Form2->Memo1->Lines->Strings[lin] != "false" && Form2->Memo1->Lines->Strings[lin] != "true") {
 		lin++;
 	}
 	if (Form2->Memo1->Lines->Strings[lin] == "1") {
@@ -118,7 +119,7 @@ int visualconf (int lin) {
 		Form3->RadioButton2->Checked = true;
 		Form3->RadioButton1->Checked = false;
 		Form3->RadioButton3->Checked = false;
-	lin++;
+		lin++;
 	}
 	if (Form2->Memo1->Lines->Strings[lin] == "3") {
 		Form3->RadioButton3->Checked = true;
@@ -155,7 +156,6 @@ int visualconf (int lin) {
 		lin++;
 	}
 	define();
-	lin = 5;
 return 0;
 }
 //---------------------------------------------------------------------------
@@ -223,6 +223,7 @@ void define (){
 void __fastcall TForm2::Timer3Timer(TObject *Sender)
 {
 	if (FileExists("..\\config\\interface.conf")) {
+		Memo1->Lines->LoadFromFile("..\\config\\interface.conf");
 		visualconf(lin);
 	}
 		Timer3->Enabled = false;
@@ -324,7 +325,6 @@ int varredura (int linha){
 		Form4->Refresh();
 		Form5->Refresh();
 		Form6->Refresh();
-		ShowMessage("Sucesso!");
 return 0;
 }
 //---------------------------------------------------------------------------
