@@ -80,7 +80,7 @@ int visualconf (int lin) {
 		Form3->CheckBox1->Checked = true;
 		lin++;
 	}
-	if (Form2->Memo1->Lines->Strings[lin] == "false") {
+	else if (Form2->Memo1->Lines->Strings[lin] == "false") {
 		Form3->CheckBox1->Checked = false;
 		lin++;
 	}
@@ -91,7 +91,7 @@ int visualconf (int lin) {
 		Form3->CheckBox2->Checked = true;
 		lin++;
 	}
-	if (Form2->Memo1->Lines->Strings[lin] == "false") {
+	else if (Form2->Memo1->Lines->Strings[lin] == "false") {
 		Form3->CheckBox2->Checked = false;
 		lin++;
 	}
@@ -102,7 +102,7 @@ int visualconf (int lin) {
 		Form3->CheckBox3->Checked = true;
 		lin++;
 	}
-	if (Form2->Memo1->Lines->Strings[lin] == "false") {
+	else if (Form2->Memo1->Lines->Strings[lin] == "false") {
 		Form3->CheckBox3->Checked = false;
 		lin++;
 	}
@@ -115,13 +115,13 @@ int visualconf (int lin) {
 		Form3->RadioButton3->Checked = false;
 		lin++;
 	}
-	if (Form2->Memo1->Lines->Strings[lin] == "2") {
+	else if (Form2->Memo1->Lines->Strings[lin] == "2") {
 		Form3->RadioButton2->Checked = true;
 		Form3->RadioButton1->Checked = false;
 		Form3->RadioButton3->Checked = false;
 		lin++;
 	}
-	if (Form2->Memo1->Lines->Strings[lin] == "3") {
+	else if (Form2->Memo1->Lines->Strings[lin] == "3") {
 		Form3->RadioButton3->Checked = true;
 		Form3->RadioButton1->Checked = false;
 		Form3->RadioButton2->Checked = false;
@@ -136,13 +136,13 @@ int visualconf (int lin) {
 		Form3->RadioButton6->Checked = false;
 		lin++;
 	}
-	if (Form2->Memo1->Lines->Strings[lin] == "2") {
+	else if (Form2->Memo1->Lines->Strings[lin] == "2") {
 		Form3->RadioButton5->Checked = true;
 		Form3->RadioButton4->Checked = false;
 		Form3->RadioButton6->Checked = false;
 		lin++;
 	}
-	if (Form2->Memo1->Lines->Strings[lin] == "3") {
+	else if (Form2->Memo1->Lines->Strings[lin] == "3") {
 		Form3->RadioButton6->Checked = true;
 		Form3->RadioButton4->Checked = false;
 		Form3->RadioButton5->Checked = false;
