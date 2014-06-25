@@ -545,9 +545,9 @@ object Form1: TForm1
   object Label8: TLabel
     Left = 236
     Top = 33
-    Width = 165
+    Width = 131
     Height = 19
-    Caption = 'V 1.0.3.9 - Est'#225'vel'
+    Caption = 'V 1.2.3.9 - Est'#225'vel'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16

@@ -137,9 +137,10 @@
         <TASM_Debugging>None</TASM_Debugging>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <VerInfo_MinorVer>2</VerInfo_MinorVer>
         <VerInfo_Build>9</VerInfo_Build>
         <VerInfo_Release>3</VerInfo_Release>
-        <VerInfo_Keys>CompanyName=Nintersoft;FileDescription=Microcontador - Despertador;FileVersion=1.0.3.9;InternalName=uC;LegalCopyright=(C) Nintersoft - Todos os direitos reservados;LegalTrademarks=;OriginalFilename=uC;ProductName=Microcontador;ProductVersion=1.0.3.9;Comments=Desenvolvimento nintersoft - microcontador</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=Nintersoft;FileDescription=Microcontador - Despertador;FileVersion=1.2.3.9;InternalName=uC;LegalCopyright=(C) Nintersoft - Todos os direitos reservados;LegalTrademarks=;OriginalFilename=uC;ProductName=Microcontador;ProductVersion=1.2.3.9;Comments=Desenvolvimento nintersoft - microcontador</VerInfo_Keys>
         <ILINK_LibraryPath>$(BDS)\lib\win32\release\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
         <LinkPackageImports>rtl.bpi;vcl.bpi</LinkPackageImports>
         <Icon_MainIcon>Project2_Icon.ico</Icon_MainIcon>
