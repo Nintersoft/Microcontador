@@ -79,7 +79,7 @@ void __fastcall TForm3::Button1Click(TObject *Sender)
 	if ( RadioButton3->Checked == true ) {
 		Form2->BorderStyle=bsSingle;
 	}
-	if (RadioButton4->Checked == true && idioma != 2.2) {
+	if (RadioButton4->Checked == true && idioma != 2.1) {
 		idioma = 2.1;
 		Memo1->Lines->LoadFromFile("..\\idiomas\\pt.idioma");
 		varredura(linha);
