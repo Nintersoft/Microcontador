@@ -8,6 +8,7 @@
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
 #include <Vcl.Mask.hpp>
+#include <Vcl.MPlayer.hpp>
 //---------------------------------------------------------------------------
 class TForm3 : public TForm
 {
@@ -39,6 +40,7 @@ __published:	// IDE-managed Components
 	TButton *Button4;
 	TCheckBox *CheckBox4;
 	TMemo *Memo2;
+	TMediaPlayer *MediaPlayer1;
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall Button2Click(TObject *Sender);
 	void __fastcall Button3Click(TObject *Sender);

@@ -62,11 +62,11 @@
         <Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
         <IncludePath>..\..\..\Downloads\Bravelcom\Microcontador\;$(IncludePath)</IncludePath>
-        <VCL_Custom_Styles>Light|VCLSTYLE|$(PUBLIC)\Documents\Embarcadero\Studio\14.0\Styles\Light.vsf</VCL_Custom_Styles>
+        <VCL_Custom_Styles>Light|VCLSTYLE|$(PUBLIC)\Documents\Embarcadero\Studio\14.0\Styles\Light.vsf;TabletDark|VCLSTYLE|$(PUBLIC)\Documents\Embarcadero\Studio\14.0\Styles\TabletDark.vsf</VCL_Custom_Styles>
         <Multithreaded>true</Multithreaded>
         <_TCHARMapping>wchar_t</_TCHARMapping>
         <ProjectType>CppVCLApplication</ProjectType>
-        <AllPackageLibs>rtl.lib;vcl.lib</AllPackageLibs>
+        <AllPackageLibs>rtl.lib;vcl.lib;vclx.lib</AllPackageLibs>
         <ILINK_LibraryPath>..\..\..\Downloads\Bravelcom\Microcontador\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
         <DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
         <DynamicRTL>true</DynamicRTL>
@@ -142,7 +142,7 @@
         <VerInfo_Release>3</VerInfo_Release>
         <VerInfo_Keys>CompanyName=Nintersoft;FileDescription=Microcontador - Despertador;FileVersion=1.2.3.9;InternalName=uC;LegalCopyright=(C) Nintersoft - Todos os direitos reservados;LegalTrademarks=;OriginalFilename=uC;ProductName=Microcontador;ProductVersion=1.2.3.9;Comments=Desenvolvimento nintersoft - microcontador</VerInfo_Keys>
         <ILINK_LibraryPath>$(BDS)\lib\win32\release\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
-        <LinkPackageImports>rtl.bpi;vcl.bpi</LinkPackageImports>
+        <LinkPackageImports>rtl.bpi;vcl.bpi;vclx.bpi</LinkPackageImports>
         <Icon_MainIcon>Project2_Icon.ico</Icon_MainIcon>
         <VerInfo_Locale>1046</VerInfo_Locale>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>

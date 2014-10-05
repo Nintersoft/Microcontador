@@ -19,7 +19,7 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 	{
 		Application->Initialize();
 		Application->MainFormOnTaskBar = false;
-		TStyleManager::TrySetStyle("Light");
+		TStyleManager::TrySetStyle("TabletDark");
 		Application->CreateForm(__classid(TForm2), &Form2);
 		Application->CreateForm(__classid(TForm3), &Form3);
 		Application->CreateForm(__classid(TForm1), &Form1);

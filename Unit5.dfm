@@ -3,7 +3,7 @@ object Form5: TForm5
   Top = 0
   BorderStyle = bsSizeToolWin
   Caption = 'Microcontador'
-  ClientHeight = 146
+  ClientHeight = 126
   ClientWidth = 385
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -42,7 +42,7 @@ object Form5: TForm5
   end
   object Button1: TButton
     Left = 192
-    Top = 78
+    Top = 66
     Width = 107
     Height = 49
     Caption = 'Cancelar'
@@ -57,7 +57,7 @@ object Form5: TForm5
   end
   object Button2: TButton
     Left = 79
-    Top = 78
+    Top = 66
     Width = 107
     Height = 49
     Caption = 'Zerar'

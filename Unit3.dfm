@@ -796,6 +796,14 @@ object Form3: TForm3
       TabOrder = 3
       OnClick = Button4Click
     end
+    object MediaPlayer1: TMediaPlayer
+      Left = 239
+      Top = -4
+      Width = 253
+      Height = 30
+      Visible = False
+      TabOrder = 4
+    end
   end
   object CheckBox4: TCheckBox
     Left = 328
