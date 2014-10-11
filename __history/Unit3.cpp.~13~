@@ -10,9 +10,10 @@
 #include "Unit5.h"
 #include "Unit6.h"
 
-int varredura (int);
 int conf (int);
+bool conferesom (String);
 
+int varredura (int);
 int h=0, m=0, s=0, c=0, linha=3, linhas=5;
 float idioma;
 
@@ -32,6 +33,13 @@ void __fastcall TForm3::Button1Click(TObject *Sender)
 	m = StrToInt (MaskEdit2->EditText);
 	s = StrToInt (MaskEdit3->EditText);
 	c =(h*3600)+(m*60)+s;
+	bool conf;
+
+	if (Edit1->Text != "") {
+		conferesom(Edit1->Text , conf);
+	}
+
+
 	if ( CheckBox1->Checked==true && Form2->ProgressBar1->Visible == false ) {
 		Form2->ProgressBar1->Visible=true;
 		Form2->Label1->Visible=true;
@@ -79,7 +87,7 @@ void __fastcall TForm3::Button1Click(TObject *Sender)
 	if ( RadioButton3->Checked == true ) {
 		Form2->BorderStyle=bsSingle;
 	}
-	if (RadioButton4->Checked == true && idioma != 2.2) {
+	if (RadioButton4->Checked == true && idioma != 2.1) {
 		idioma = 2.1;
 		Memo1->Lines->LoadFromFile("..\\idiomas\\pt.idioma");
 		varredura(linha);
@@ -97,7 +105,6 @@ void __fastcall TForm3::Button1Click(TObject *Sender)
 	}
 	if (CheckBox4->Checked == true) {
 		conf(linhas);
-
 	}
 		Form2->Edit2->Text = IntToStr (c);
 		Form2->Edit1->Text = IntToStr (c);
@@ -126,7 +133,7 @@ void __fastcall TForm3::FormShow(TObject *Sender)
 		idioma = 2.2;
 	}
 	else {
-        idioma = 2.3;
+		idioma = 2.3;
 	}
 	if (FileExists("..\\config\\interface.conf")) {
 		Form3->Memo2->Lines->LoadFromFile("..\\config\\interface.conf");
@@ -281,7 +288,37 @@ int conf (int linhas){
 		Form3->Memo2->Lines->Strings[linhas] = "3";
 		linhas++;
 	}
+		Form3->Memo2->Lines->SaveToFile("..\\config\\interface.conf");
 	linhas = 5;
 return 0;
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm3::SpeedButton1Click(TObject *Sender)
+{
+	if (OpenDialog1->Execute()) {
+		Edit1->Text = OpenDialog1->FileName;
+	}
+}
+//---------------------------------------------------------------------------
+bool conferesom(String arquivo , bool k){
+String extensao;
+bool k;
+
+int a = arquivo.Length() - 4;
+  if (Form3->Edit1->Text != "") {
+	for (i = a; i < arquivo.Length(); i++) {
+		extensao  = extensao + arquivo[i];
+	}
+
+	if (extensão != ".mp3" | extensão != ".wma") {
+		throw Exception ("A música não está de acordo com os formatos suporados!");
+	}
+	else {
+		return k;
+	}
+  }
+  else {
+	  return false;
+  }
 }
 //---------------------------------------------------------------------------

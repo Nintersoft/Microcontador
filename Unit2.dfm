@@ -4,7 +4,7 @@ object Form2: TForm2
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsToolWindow
   Caption = 'Microcontador'
-  ClientHeight = 172
+  ClientHeight = 188
   ClientWidth = 190
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -516,6 +516,20 @@ object Form2: TForm2
     Height = 13
     Caption = 'Tempo (em segundos) selecionado:'
   end
+  object Label4: TLabel
+    Left = 8
+    Top = 170
+    Width = 24
+    Height = 13
+    Caption = 'Som:'
+  end
+  object Label5: TLabel
+    Left = 38
+    Top = 170
+    Width = 139
+    Height = 13
+    Caption = 'Padr'#227'o'
+  end
   object Memo1: TMemo
     Left = 0
     Top = 116
@@ -590,6 +604,13 @@ object Form2: TForm2
     TabOrder = 5
     OnClick = Button3Click
   end
+  object MediaPlayer1: TMediaPlayer
+    Left = 183
+    Top = 134
+    Width = 253
+    Height = 30
+    TabOrder = 7
+  end
   object Timer1: TTimer
     Enabled = False
     OnTimer = Timer1Timer
@@ -603,7 +624,7 @@ object Form2: TForm2
   object Timer3: TTimer
     Interval = 500
     OnTimer = Timer3Timer
-    Left = 184
+    Left = 168
     Top = 168
   end
 end

@@ -9,6 +9,8 @@
 #include <Vcl.Forms.hpp>
 #include <Vcl.Mask.hpp>
 #include <Vcl.MPlayer.hpp>
+#include <Vcl.Buttons.hpp>
+#include <Vcl.Dialogs.hpp>
 //---------------------------------------------------------------------------
 class TForm3 : public TForm
 {
@@ -40,12 +42,17 @@ __published:	// IDE-managed Components
 	TButton *Button4;
 	TCheckBox *CheckBox4;
 	TMemo *Memo2;
-	TMediaPlayer *MediaPlayer1;
+	TOpenDialog *OpenDialog1;
+	TGroupBox *GroupBox4;
+	TEdit *Edit1;
+	TLabel *Label6;
+	TSpeedButton *SpeedButton1;
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall Button2Click(TObject *Sender);
 	void __fastcall Button3Click(TObject *Sender);
 	void __fastcall FormShow(TObject *Sender);
 	void __fastcall Button4Click(TObject *Sender);
+	void __fastcall SpeedButton1Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm3(TComponent* Owner);

@@ -4,7 +4,7 @@ object Form3: TForm3
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Microcontador - Configura'#231#245'es'
-  ClientHeight = 461
+  ClientHeight = 375
   ClientWidth = 512
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -489,7 +489,7 @@ object Form3: TForm3
   OnShow = FormShow
   DesignSize = (
     512
-    461)
+    375)
   PixelsPerInch = 96
   TextHeight = 13
   object Memo2: TMemo
@@ -724,10 +724,9 @@ object Form3: TForm3
   end
   object Button1: TButton
     Left = 184
-    Top = 417
+    Top = 342
     Width = 123
-    Height = 36
-    Anchors = [akBottom]
+    Height = 25
     Caption = 'Salvar'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -737,22 +736,19 @@ object Form3: TForm3
     ParentFont = False
     TabOrder = 2
     OnClick = Button1Click
-    ExplicitTop = 365
   end
   object Button2: TButton
     Left = 24
-    Top = 417
+    Top = 342
     Width = 106
-    Height = 36
-    Anchors = [akBottom]
+    Height = 25
     Caption = 'Sobre n'#243's'
     TabOrder = 3
     OnClick = Button2Click
-    ExplicitTop = 365
   end
   object GroupBox3: TGroupBox
     Left = 8
-    Top = 314
+    Top = 239
     Width = 489
     Height = 97
     Anchors = [akLeft, akRight]
@@ -800,60 +796,21 @@ object Form3: TForm3
       TabOrder = 3
       OnClick = Button4Click
     end
+    object MediaPlayer1: TMediaPlayer
+      Left = 239
+      Top = -4
+      Width = 253
+      Height = 30
+      Visible = False
+      TabOrder = 4
+    end
   end
   object CheckBox4: TCheckBox
-    Left = 335
-    Top = 425
+    Left = 328
+    Top = 350
     Width = 169
-    Height = 28
-    Anchors = [akBottom]
+    Height = 17
     Caption = 'Manter configura'#231#245'es'
     TabOrder = 6
-    ExplicitTop = 373
-  end
-  object GroupBox4: TGroupBox
-    Left = 8
-    Top = 239
-    Width = 489
-    Height = 74
-    Caption = 'Op'#231#245'es de som'
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Arial'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 8
-    object Label6: TLabel
-      Left = 16
-      Top = 40
-      Width = 139
-      Height = 18
-      Caption = 'Som personalizado:'
-    end
-    object SpeedButton1: TSpeedButton
-      Left = 447
-      Top = 32
-      Width = 31
-      Height = 25
-      Caption = '*'
-      OnClick = SpeedButton1Click
-    end
-    object Edit1: TEdit
-      Left = 161
-      Top = 32
-      Width = 280
-      Height = 26
-      Hint = 'Ex.:"C:\usuarios\usuario\arquivo.mp3"'
-      TabOrder = 0
-    end
-  end
-  object OpenDialog1: TOpenDialog
-    DefaultExt = '*.mp3'
-    FileName = 'despertador'
-    Filter = 'MP3|*.mp3|WMA|*.wma|Arquivos de m'#250'sica suportados|*.mp3 , *.wma'
-    Title = 'Microcontador - Nintersoft'
-    Left = 464
-    Top = 239
   end
 end
