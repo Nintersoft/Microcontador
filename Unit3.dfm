@@ -737,7 +737,6 @@ object Form3: TForm3
     ParentFont = False
     TabOrder = 2
     OnClick = Button1Click
-    ExplicitTop = 365
   end
   object Button2: TButton
     Left = 24
@@ -748,7 +747,6 @@ object Form3: TForm3
     Caption = 'Sobre n'#243's'
     TabOrder = 3
     OnClick = Button2Click
-    ExplicitTop = 365
   end
   object GroupBox3: TGroupBox
     Left = 8
@@ -809,7 +807,6 @@ object Form3: TForm3
     Anchors = [akBottom]
     Caption = 'Manter configura'#231#245'es'
     TabOrder = 6
-    ExplicitTop = 373
   end
   object GroupBox4: TGroupBox
     Left = 8

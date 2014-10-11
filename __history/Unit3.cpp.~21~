@@ -10,8 +10,9 @@
 #include "Unit5.h"
 #include "Unit6.h"
 
+int salvar (int);
+void conferesom (String, bool);
 int varredura (int);
-int conf (int);
 
 int h=0, m=0, s=0, c=0, linha=3, linhas=5;
 float idioma;
@@ -32,6 +33,13 @@ void __fastcall TForm3::Button1Click(TObject *Sender)
 	m = StrToInt (MaskEdit2->EditText);
 	s = StrToInt (MaskEdit3->EditText);
 	c =(h*3600)+(m*60)+s;
+	bool conf;
+
+	if (Edit1->Text != "") {
+		conferesom(Edit1->Text , conf);
+		Form2->Label5->Caption = Edit1->Text;
+	}
+
 	if ( CheckBox1->Checked==true && Form2->ProgressBar1->Visible == false ) {
 		Form2->ProgressBar1->Visible=true;
 		Form2->Label1->Visible=true;
@@ -79,24 +87,24 @@ void __fastcall TForm3::Button1Click(TObject *Sender)
 	if ( RadioButton3->Checked == true ) {
 		Form2->BorderStyle=bsSingle;
 	}
-	if (RadioButton4->Checked == true && idioma != 2.2) {
+	if (RadioButton4->Checked == true && idioma != 2.1) {
 		idioma = 2.1;
 		Memo1->Lines->LoadFromFile("..\\idiomas\\pt.idioma");
 		varredura(linha);
 		ShowMessage("Para completar a atualização de idioma, por favor, reinicie o programa para prevenir erros de tradução!");
 	}
-	if (RadioButton5->Checked == true && idioma != 2.2) {
+	else if (RadioButton5->Checked == true && idioma != 2.2) {
 		idioma = 2.2;
 		Memo1->Lines->LoadFromFile("..\\idiomas\\en.idioma");
 		varredura(linha);
 	}
-	if (RadioButton6->Checked == true && idioma != 2.3) {
+	else if (RadioButton6->Checked == true && idioma != 2.3) {
 		idioma = 2.3;
 		Memo1->Lines->LoadFromFile("..\\idiomas\\edit.idioma");
 		varredura(linha);
 	}
 	if (CheckBox4->Checked == true) {
-		conf(linhas);
+		salvar (linhas);
 	}
 		Form2->Edit2->Text = IntToStr (c);
 		Form2->Edit1->Text = IntToStr (c);
@@ -121,11 +129,11 @@ void __fastcall TForm3::FormShow(TObject *Sender)
 	if (Button2->Caption == "Sobre nós") {
 		idioma = 2.1;
 	}
-	if (Button2->Caption == "About us") {
+	else if (Button2->Caption == "About us") {
 		idioma = 2.2;
 	}
 	else {
-        idioma = 2.3;
+		idioma = 2.3;
 	}
 	if (FileExists("..\\config\\interface.conf")) {
 		Form3->Memo2->Lines->LoadFromFile("..\\config\\interface.conf");
@@ -231,57 +239,81 @@ void __fastcall TForm3::Button4Click(TObject *Sender)
 	Form6->Show();
 }
 //---------------------------------------------------------------------------
-int conf (int linhas){
+int salvar (int lin){
+
 	if (Form3->CheckBox1->Checked == true) {
-		Form3->Memo2->Lines->Strings[linhas] = "true";
+		Form3->Memo2->Lines->Strings[lin] = "true";
 		linhas++;
 	}
 	if (Form3->CheckBox1->Checked == false) {
-		Form3->Memo2->Lines->Strings[linhas] = "false";
+		Form3->Memo2->Lines->Strings[lin] = "false";
 		linhas++;
 	}
 	if (Form3->CheckBox2->Checked == true) {
-		Form3->Memo2->Lines->Strings[linhas] = "true";
+		Form3->Memo2->Lines->Strings[lin] = "true";
 		linhas++;
 	}
 	if (Form3->CheckBox2->Checked == false) {
-		Form3->Memo2->Lines->Strings[linhas] = "false";
+		Form3->Memo2->Lines->Strings[lin] = "false";
 		linhas++;
 	}
 	if (Form3->CheckBox3->Checked == true) {
-		Form3->Memo2->Lines->Strings[linhas] = "true";
+		Form3->Memo2->Lines->Strings[lin] = "true";
 		linhas++;
 	}
 	if (Form3->CheckBox3->Checked == false) {
-		Form3->Memo2->Lines->Strings[linhas] = "false";
+		Form3->Memo2->Lines->Strings[lin] = "false";
 		linhas++;
 	}
 	if (Form3->RadioButton1->Checked == true) {
-		Form3->Memo2->Lines->Strings[linhas] = "1";
+		Form3->Memo2->Lines->Strings[lin] = "1";
 		linhas++;
 	}
 	if (Form3->RadioButton2->Checked == true) {
-		Form3->Memo2->Lines->Strings[linhas] = "2";
+		Form3->Memo2->Lines->Strings[lin] = "2";
 		linhas++;
 	}
 	if (Form3->RadioButton3->Checked == true) {
-		Form3->Memo2->Lines->Strings[linhas] = "3";
+		Form3->Memo2->Lines->Strings[lin] = "3";
 		linhas++;
 	}
 	if (Form3->RadioButton4->Checked == true) {
-		Form3->Memo2->Lines->Strings[linhas] = "1";
+		Form3->Memo2->Lines->Strings[lin] = "1";
 		linhas++;
 	}
 	if (Form3->RadioButton5->Checked == true) {
-		Form3->Memo2->Lines->Strings[linhas] = "2";
+		Form3->Memo2->Lines->Strings[lin] = "2";
 		linhas++;
 	}
 	if (Form3->RadioButton6->Checked == true) {
-		Form3->Memo2->Lines->Strings[linhas] = "3";
+		Form3->Memo2->Lines->Strings[lin] = "3";
 		linhas++;
 	}
 		Form3->Memo2->Lines->SaveToFile("..\\config\\interface.conf");
 	linhas = 5;
-return 0;
+	return 0;
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm3::SpeedButton1Click(TObject *Sender)
+{
+	if (OpenDialog1->Execute()) {
+		Edit1->Text = OpenDialog1->FileName;
+	}
+}
+//---------------------------------------------------------------------------
+void conferesom(String arquivo , bool k){
+
+String extensao;
+int i;
+int a = arquivo.Length() - 3;
+
+	for (i = a; i <= arquivo.Length(); i++) {
+		extensao  = extensao + arquivo[i];
+	}
+
+	if (extensao != ".mp3" | extensao != ".wma") {
+		ShowMessage (extensao);
+		//throw Exception ("A música não está de acordo com os formatos suporados!");
+	}
 }
 //---------------------------------------------------------------------------

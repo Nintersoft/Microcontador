@@ -43,13 +43,31 @@ void __fastcall TForm2::Timer1Timer(TObject *Sender)
 	}
 	else if (a != 1 && c == 0) {
 		a++;
-		if (Form4->Memo1->Lines->Strings[0] != "Digite sua mensagem aqui! - Opcional") {
-			Application->BringToFront();
-			throw Exception (Form4->Memo1->Lines->Strings[0]+" "+Form4->Memo1->Lines->Strings[1]);
+		if (Label5->Caption == "Padrão") {
+			if (Form4->Memo1->Lines->Strings[0] != "Digite sua mensagem aqui! - Opcional") {
+				Application->BringToFront();
+				throw Exception (Form4->Memo1->Lines->Strings[0]+" "+Form4->Memo1->Lines->Strings[1]);
+			}
+			else {
+				Application->BringToFront();
+				throw Exception ("Tempo limite atingido, sua contagem acabou!");
+			}
 		}
 		else {
-			Application->BringToFront();
-			throw Exception ("Tempo limite atingido, sua contagem acabou!");
+			if (Form4->Memo1->Lines->Strings[0] != "Digite sua mensagem aqui! - Opcional") {
+				MediaPlayer1->FileName = Label5->Caption;
+				MediaPlayer1->Open();
+				MediaPlayer1->Play();
+				Application->BringToFront();
+				ShowMessage (Form4->Memo1->Lines->Strings[0]+" "+Form4->Memo1->Lines->Strings[1]);
+			}
+			else {
+				Application->BringToFront();
+				MediaPlayer1->FileName = Label5->Caption;
+				MediaPlayer1->Open();
+				MediaPlayer1->Play();
+				ShowMessage ("Tempo limite atingido, sua contagem acabou!");
+			}
 		}
 	}
 	else if (a == 1) {
