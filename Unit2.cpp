@@ -55,18 +55,16 @@ void __fastcall TForm2::Timer1Timer(TObject *Sender)
 		}
 		else {
 			if (Form4->Memo1->Lines->Strings[0] != "Digite sua mensagem aqui! - Opcional") {
-				MediaPlayer1->FileName = Label5->Caption;
-				MediaPlayer1->Open();
 				MediaPlayer1->Play();
 				Application->BringToFront();
 				ShowMessage (Form4->Memo1->Lines->Strings[0]+" "+Form4->Memo1->Lines->Strings[1]);
+				MediaPlayer1->Stop();
 			}
 			else {
 				Application->BringToFront();
-				MediaPlayer1->FileName = Label5->Caption;
-				MediaPlayer1->Open();
 				MediaPlayer1->Play();
 				ShowMessage ("Tempo limite atingido, sua contagem acabou!");
+				MediaPlayer1->Stop();
 			}
 		}
 	}
@@ -83,6 +81,10 @@ void __fastcall TForm2::Button2Click(TObject *Sender)
 	}
 	else{
 		Timer1->Enabled=true;
+	}
+	if (Label5->Caption != "Padrão") {
+			MediaPlayer1->FileName = Label5->Caption;
+			MediaPlayer1->Open();
 	}
 }
 //---------------------------------------------------------------------------

@@ -607,8 +607,10 @@ object Form2: TForm2
   object MediaPlayer1: TMediaPlayer
     Left = 239
     Top = 170
-    Width = 253
+    Width = 141
     Height = 30
+    EnabledButtons = [btPlay, btPause, btStop, btStep, btBack, btEject]
+    VisibleButtons = [btPlay, btPause, btStop, btStep, btBack]
     TabOrder = 7
   end
   object Timer1: TTimer

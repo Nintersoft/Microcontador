@@ -87,19 +87,19 @@ void __fastcall TForm3::Button1Click(TObject *Sender)
 	if ( RadioButton3->Checked == true ) {
 		Form2->BorderStyle=bsSingle;
 	}
-	if (RadioButton4->Checked == true && idioma != 2.1) {
-		idioma = 2.1;
+	if (RadioButton4->Checked == true && idioma != 2) {
+		idioma = 2;
 		Memo1->Lines->LoadFromFile("..\\idiomas\\pt.idioma");
 		varredura(linha);
 		ShowMessage("Para completar a atualização de idioma, por favor, reinicie o programa para prevenir erros de tradução!");
 	}
-	else if (RadioButton5->Checked == true && idioma != 2.2) {
-		idioma = 2.2;
+	else if (RadioButton5->Checked == true && idioma != 3) {
+		idioma = 3;
 		Memo1->Lines->LoadFromFile("..\\idiomas\\en.idioma");
 		varredura(linha);
 	}
-	else if (RadioButton6->Checked == true && idioma != 2.3) {
-		idioma = 2.3;
+	else if (RadioButton6->Checked == true && idioma != 4) {
+		idioma = 4;
 		Memo1->Lines->LoadFromFile("..\\idiomas\\edit.idioma");
 		varredura(linha);
 	}
@@ -127,13 +127,13 @@ void __fastcall TForm3::Button3Click(TObject *Sender)
 void __fastcall TForm3::FormShow(TObject *Sender)
 {
 	if (Button2->Caption == "Sobre nós") {
-		idioma = 2.1;
+		idioma = 2;
 	}
 	else if (Button2->Caption == "About us") {
-		idioma = 2.2;
+		idioma = 3;
 	}
 	else {
-		idioma = 2.3;
+		idioma = 4;
 	}
 	if (FileExists("..\\config\\interface.conf")) {
 		Form3->Memo2->Lines->LoadFromFile("..\\config\\interface.conf");
