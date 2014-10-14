@@ -229,6 +229,18 @@ int varredura (int linha){
 		linha++;
 		Form6->Fechar1->Caption = Form3->Memo1->Lines->Strings[linha];
 		linha++;
+		Form3->GroupBox4->Caption = Form3->Memo1->Lines->Strings[linha];
+		linha++;
+		Form3->Label6->Caption = Form3->Memo1->Lines->Strings[linha];
+		linha++;
+		Form3->Edit1->Hint = Form3->Memo1->Lines->Strings[linha];
+		linha++;
+		Form3->CheckBox4->Caption = Form3->Memo1->Lines->Strings[linha];
+		linha++;
+		Form2->Label4->Caption = Form3->Memo1->Lines->Strings[linha];
+		linha++;
+		Form2->Label5->Caption = Form3->Memo1->Lines->Strings[linha];
+		linha++;
 		linha = 3;
 return 0;
 }
@@ -287,6 +299,10 @@ int salvar (int lin){
 	}
 	if (Form3->RadioButton6->Checked == true) {
 		Form3->Memo2->Lines->Strings[lin] = "3";
+		linhas++;
+	}
+	if (Form3->Edit1->Text != "") {
+		Form3->Memo2->Lines->Strings[lin] = Form3->Edit1->Text;
 		linhas++;
 	}
 		Form3->Memo2->Lines->SaveToFile("..\\config\\interface.conf");

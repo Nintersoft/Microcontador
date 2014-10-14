@@ -43,7 +43,7 @@ void __fastcall TForm2::Timer1Timer(TObject *Sender)
 	}
 	else if (a != 1 && c == 0) {
 		a++;
-		if (Label5->Caption == "Padrão") {
+		if (Label5->Caption == "Padrão" | Label5->Caption == "Default") {
 			if (Form4->Memo1->Lines->Strings[0] != "Digite sua mensagem aqui! - Opcional") {
 				Application->BringToFront();
 				throw Exception (Form4->Memo1->Lines->Strings[0]+" "+Form4->Memo1->Lines->Strings[1]);
@@ -82,7 +82,7 @@ void __fastcall TForm2::Button2Click(TObject *Sender)
 	else{
 		Timer1->Enabled=true;
 	}
-	if (Label5->Caption != "Padrão") {
+	if (Label5->Caption != "Padrão" && Label5->Caption != "Default") {
 			MediaPlayer1->FileName = Label5->Caption;
 			MediaPlayer1->Open();
 	}
@@ -173,6 +173,14 @@ int visualconf (int lin) {
 	}
 	if (Form2->Memo1->Lines->Strings[lin] == "true") {
 		Form3->CheckBox4->Checked = true;
+		lin++;
+	}
+	else{
+		lin++;
+	}
+	if (Form2->Memo1->Lines->Strings[lin] != "") {
+		Form2->Label5->Caption = Form2->Memo1->Lines->Strings[lin];
+		Form3->Edit1->Text = Form2->Label5->Caption;
 		lin++;
 	}
 	define();
@@ -337,6 +345,18 @@ int varredura (int linha){
 		Form6->Salvar1->Caption = Form3->Memo1->Lines->Strings[linha];
 		linha++;
 		Form6->Fechar1->Caption = Form3->Memo1->Lines->Strings[linha];
+		linha++;
+		Form3->GroupBox4->Caption = Form3->Memo1->Lines->Strings[linha];
+		linha++;
+		Form3->Label6->Caption = Form3->Memo1->Lines->Strings[linha];
+		linha++;
+		Form3->Edit1->Hint = Form3->Memo1->Lines->Strings[linha];
+		linha++;
+		Form3->CheckBox4->Caption = Form3->Memo1->Lines->Strings[linha];
+		linha++;
+		Form2->Label4->Caption = Form3->Memo1->Lines->Strings[linha];
+		linha++;
+		Form2->Label5->Caption = Form3->Memo1->Lines->Strings[linha];
 		linha++;
 		linha = 3;
 		Form1->Refresh();
