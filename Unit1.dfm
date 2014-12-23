@@ -485,6 +485,7 @@ object Form1: TForm1
     00000000FFFF000000000000FFFF000000000000FFFF000000000000FFFF0000
     00000000FFFF000000000000FFFF000000000000FFFF000000000000FFFF0000
     00000000FFFF000000000000FFFF}
+  Menu = MainMenu1
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
@@ -545,14 +546,26 @@ object Form1: TForm1
   object Label8: TLabel
     Left = 236
     Top = 33
-    Width = 112
+    Width = 66
     Height = 19
-    Caption = 'V 1.5.0.0 - Beta'
+    Caption = 'V 1.5.0.0'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+  end
+  object MainMenu1: TMainMenu
+    Left = 48
+    Top = 24
+    object Arquivo1: TMenuItem
+      Caption = 'Arquivo'
+      object Funesdeteste1: TMenuItem
+        Caption = 'Fun'#231#245'es de teste'
+        ShortCut = 16460
+        OnClick = Funesdeteste1Click
+      end
+    end
   end
 end

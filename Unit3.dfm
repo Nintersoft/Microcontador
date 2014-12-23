@@ -686,6 +686,7 @@ object Form3: TForm3
       Height = 18
       Caption = 'Mostrar na barra de tarefas'
       Checked = True
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -850,7 +851,7 @@ object Form3: TForm3
     FileName = 'despertador'
     Filter = 'MP3|*.mp3|WMA|*.wma|Arquivos de m'#250'sica suportados|*.mp3 , *.wma'
     Title = 'Microcontador - Nintersoft'
-    Left = 464
-    Top = 239
+    Left = 472
+    Top = 231
   end
 end

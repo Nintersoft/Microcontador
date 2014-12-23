@@ -48,6 +48,10 @@ void __fastcall TForm2::Timer1Timer(TObject *Sender)
 				Application->BringToFront();
 				throw Exception (Form4->Memo1->Lines->Strings[0]+" "+Form4->Memo1->Lines->Strings[1]);
 			}
+			else if (Form4->Memo1->Lines->Strings[0] == "Type your message here - Optional") {
+				Application->BringToFront();
+				throw Exception ("Time exceeded, your time limit has finished!");
+			}
 			else {
 				Application->BringToFront();
 				throw Exception ("Tempo limite atingido, sua contagem acabou!");
@@ -357,6 +361,10 @@ int varredura (int linha){
 		Form2->Label4->Caption = Form3->Memo1->Lines->Strings[linha];
 		linha++;
 		Form2->Label5->Caption = Form3->Memo1->Lines->Strings[linha];
+		linha++;
+		Form1->Arquivo1->Caption = Form3->Memo1->Lines->Strings[linha];
+		linha++;
+		Form1->Funesdeteste1->Caption = Form3->Memo1->Lines->Strings[linha];
 		linha++;
 		linha = 3;
 		Form1->Refresh();

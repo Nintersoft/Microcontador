@@ -38,6 +38,7 @@ void __fastcall TForm3::Button1Click(TObject *Sender)
 	if (Edit1->Text != "") {
 		conferesom(Edit1->Text , conf);
 		Form2->Label5->Caption = Edit1->Text;
+		Form2->Label5->Hint = Edit1->Text;
 	}
 
 	if ( CheckBox1->Checked==true && Form2->ProgressBar1->Visible == false ) {
@@ -49,8 +50,8 @@ void __fastcall TForm3::Button1Click(TObject *Sender)
 	else if ( CheckBox1->Checked==false && Form2->ProgressBar1->Visible == true ){
 		Form2->ProgressBar1->Visible=false;
 		Form2->Label1->Visible=false;
-			Form2->Height-=30;
-			Form2->Button1->Top-=30;
+		Form2->Height-=30;
+		Form2->Button1->Top-=30;
 	}
 	if (CheckBox2->Checked==true && Form2->Edit2->Visible == false && Form2->Label3->Visible == false ) {
 		Form2->Edit2->Visible=true;
@@ -72,19 +73,20 @@ void __fastcall TForm3::Button1Click(TObject *Sender)
 		Form2->Edit1->Top-=34;
 		Form2->ProgressBar1->Top-=34;
 	}
-	if (CheckBox3->Checked==true && Application->MainFormOnTaskBar == false ) {
+/*	if (CheckBox3->Checked==true && Application->MainFormOnTaskBar == false ) {
 		Application->MainFormOnTaskBar=true;
 	}
-	else {
+	else if (Application->MainFormOnTaskBar == true){
 		Application->MainFormOnTaskBar=false;
 	}
-	if ( RadioButton1->Checked == true ) {
+*/
+	if ( RadioButton1->Checked == true && Form2->BorderStyle != bsToolWindow) {
 		Form2->BorderStyle=bsToolWindow;
 	}
-	if ( RadioButton2->Checked == true ) {
+	else if ( RadioButton2->Checked == true && Form2->BorderStyle != bsNone) {
 		Form2->BorderStyle=bsNone;
 	}
-	if ( RadioButton3->Checked == true ) {
+	else if ( RadioButton3->Checked == true && Form2->BorderStyle != bsSingle) {
 		Form2->BorderStyle=bsSingle;
 	}
 	if (RadioButton4->Checked == true && idioma != 2) {
@@ -241,6 +243,10 @@ int varredura (int linha){
 		linha++;
 		Form2->Label5->Caption = Form3->Memo1->Lines->Strings[linha];
 		linha++;
+		Form1->Arquivo1->Caption = Form3->Memo1->Lines->Strings[linha];
+		linha++;
+		Form1->Funesdeteste1->Caption = Form3->Memo1->Lines->Strings[linha];
+		linha++;
 		linha = 3;
 return 0;
 }
@@ -305,7 +311,7 @@ int salvar (int lin){
 		Form3->Memo2->Lines->Strings[lin] = Form3->Edit1->Text;
 		linhas++;
 	}
-		Form3->Memo2->Lines->SaveToFile("..\\config\\interface.conf");
+	Form3->Memo2->Lines->SaveToFile("..\\config\\interface.conf");
 	linhas = 5;
 	return 0;
 }

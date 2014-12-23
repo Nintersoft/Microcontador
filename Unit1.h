@@ -7,6 +7,7 @@
 #include <Vcl.Controls.hpp>
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
+#include <Vcl.Menus.hpp>
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -16,6 +17,10 @@ __published:	// IDE-managed Components
 	TLabel *Label6;
 	TLabel *Label7;
 	TLabel *Label8;
+	TMainMenu *MainMenu1;
+	TMenuItem *Arquivo1;
+	TMenuItem *Funesdeteste1;
+	void __fastcall Funesdeteste1Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);

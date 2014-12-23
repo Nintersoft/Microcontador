@@ -526,7 +526,7 @@ object Form2: TForm2
   object Label5: TLabel
     Left = 38
     Top = 170
-    Width = 34
+    Width = 155
     Height = 13
     Caption = 'Padr'#227'o'
   end

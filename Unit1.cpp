@@ -14,3 +14,9 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 {
 }
 //---------------------------------------------------------------------------
+void __fastcall TForm1::Funesdeteste1Click(TObject *Sender)
+{
+	ShowMessage("Em breve... \n Recursos ainda indisponíveis.");
+}
+//---------------------------------------------------------------------------
+

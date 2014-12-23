@@ -13,7 +13,7 @@ Product:
 Microcontador - Release
 Copyright (C) - Nintersoft - All rights reserved
 Version
-V 1.0.3.1 - BETA
+V 1.5.0.0
 Microcontador - Message
 Type your message here - Optional
 Microcontador
@@ -51,4 +51,6 @@ Eg.:"C:\usuarios\usuario\arquivo.mp3"
 Save settings
 Song:
 Default
+File
+Labs
 //------------------------------------- Language file (xx-XX) --------------------------------------
