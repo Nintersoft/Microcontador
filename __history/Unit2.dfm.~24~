@@ -5,7 +5,7 @@ object Form2: TForm2
   BorderStyle = bsToolWindow
   Caption = 'Microcontador'
   ClientHeight = 188
-  ClientWidth = 190
+  ClientWidth = 192
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -526,7 +526,7 @@ object Form2: TForm2
   object Label5: TLabel
     Left = 38
     Top = 170
-    Width = 139
+    Width = 155
     Height = 13
     Caption = 'Padr'#227'o'
   end
@@ -604,6 +604,15 @@ object Form2: TForm2
     TabOrder = 5
     OnClick = Button3Click
   end
+  object MediaPlayer1: TMediaPlayer
+    Left = 239
+    Top = 170
+    Width = 141
+    Height = 30
+    EnabledButtons = [btPlay, btPause, btStop, btStep, btBack, btEject]
+    VisibleButtons = [btPlay, btPause, btStop, btStep, btBack]
+    TabOrder = 7
+  end
   object Timer1: TTimer
     Enabled = False
     OnTimer = Timer1Timer
@@ -617,7 +626,7 @@ object Form2: TForm2
   object Timer3: TTimer
     Interval = 500
     OnTimer = Timer3Timer
-    Left = 184
+    Left = 168
     Top = 168
   end
 end

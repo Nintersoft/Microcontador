@@ -261,58 +261,58 @@ int salvar (int lin){
 
 	if (Form3->CheckBox1->Checked == true) {
 		Form3->Memo2->Lines->Strings[lin] = "true";
-		linhas++;
+		lin++;
 	}
 	if (Form3->CheckBox1->Checked == false) {
 		Form3->Memo2->Lines->Strings[lin] = "false";
-		linhas++;
+		lin++;
 	}
 	if (Form3->CheckBox2->Checked == true) {
 		Form3->Memo2->Lines->Strings[lin] = "true";
-		linhas++;
+		lin++;
 	}
 	if (Form3->CheckBox2->Checked == false) {
 		Form3->Memo2->Lines->Strings[lin] = "false";
-		linhas++;
+		lin++;
 	}
 	if (Form3->CheckBox3->Checked == true) {
 		Form3->Memo2->Lines->Strings[lin] = "true";
-		linhas++;
+		lin++;
 	}
 	if (Form3->CheckBox3->Checked == false) {
 		Form3->Memo2->Lines->Strings[lin] = "false";
-		linhas++;
+		lin++;
 	}
 	if (Form3->RadioButton1->Checked == true) {
 		Form3->Memo2->Lines->Strings[lin] = "1";
-		linhas++;
+		lin++;
 	}
 	if (Form3->RadioButton2->Checked == true) {
 		Form3->Memo2->Lines->Strings[lin] = "2";
-		linhas++;
+		lin++;
 	}
 	if (Form3->RadioButton3->Checked == true) {
 		Form3->Memo2->Lines->Strings[lin] = "3";
-		linhas++;
+		lin++;
 	}
 	if (Form3->RadioButton4->Checked == true) {
 		Form3->Memo2->Lines->Strings[lin] = "1";
-		linhas++;
+		lin++;
 	}
 	if (Form3->RadioButton5->Checked == true) {
 		Form3->Memo2->Lines->Strings[lin] = "2";
-		linhas++;
+		lin++;
 	}
 	if (Form3->RadioButton6->Checked == true) {
 		Form3->Memo2->Lines->Strings[lin] = "3";
-		linhas++;
+		lin++;
 	}
 	if (Form3->Edit1->Text != "") {
 		Form3->Memo2->Lines->Strings[lin] = Form3->Edit1->Text;
-		linhas++;
+		lin++;
 	}
 	Form3->Memo2->Lines->SaveToFile("..\\config\\interface.conf");
-	linhas = 5;
+	lin = 5;
 	return 0;
 }
 //---------------------------------------------------------------------------

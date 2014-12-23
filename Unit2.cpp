@@ -179,9 +179,9 @@ int visualconf (int lin) {
 		Form3->CheckBox4->Checked = true;
 		lin++;
 	}
-	else{
-		lin++;
-	}
+//	else{
+//		lin++;
+//	}
 	if (Form2->Memo1->Lines->Strings[lin] != "") {
 		Form2->Label5->Caption = Form2->Memo1->Lines->Strings[lin];
 		Form3->Edit1->Text = Form2->Label5->Caption;

@@ -43,10 +43,14 @@ void __fastcall TForm2::Timer1Timer(TObject *Sender)
 	}
 	else if (a != 1 && c == 0) {
 		a++;
-		if (Label5->Caption == "Padrão") {
+		if (Label5->Caption == "Padrão" | Label5->Caption == "Default") {
 			if (Form4->Memo1->Lines->Strings[0] != "Digite sua mensagem aqui! - Opcional") {
 				Application->BringToFront();
 				throw Exception (Form4->Memo1->Lines->Strings[0]+" "+Form4->Memo1->Lines->Strings[1]);
+			}
+			else if (Form4->Memo1->Lines->Strings[0] == "Type your message here - Optional") {
+				Application->BringToFront();
+				throw Exception ("Time exceeded, your time limit has finished!");
 			}
 			else {
 				Application->BringToFront();
@@ -82,7 +86,7 @@ void __fastcall TForm2::Button2Click(TObject *Sender)
 	else{
 		Timer1->Enabled=true;
 	}
-	if (Label5->Caption != "Padrão") {
+	if (Label5->Caption != "Padrão" && Label5->Caption != "Default") {
 			MediaPlayer1->FileName = Label5->Caption;
 			MediaPlayer1->Open();
 	}
@@ -175,7 +179,7 @@ int visualconf (int lin) {
 		Form3->CheckBox4->Checked = true;
 		lin++;
 	}
-	else{
+	else if{
 		lin++;
 	}
 	if (Form2->Memo1->Lines->Strings[lin] != "") {
@@ -250,11 +254,10 @@ void define (){
 //---------------------------------------------------------------------------
 void __fastcall TForm2::Timer3Timer(TObject *Sender)
 {
-/*	if (FileExists("..\\config\\interface.conf")) {
+	if (FileExists("..\\config\\interface.conf")) {
 		Memo1->Lines->LoadFromFile("..\\config\\interface.conf");
 		visualconf(lin);
 	}
-*/
 		Timer3->Enabled = false;
 }
 //---------------------------------------------------------------------------
@@ -359,6 +362,10 @@ int varredura (int linha){
 		linha++;
 		Form2->Label5->Caption = Form3->Memo1->Lines->Strings[linha];
 		linha++;
+		Form1->Arquivo1->Caption = Form3->Memo1->Lines->Strings[linha];
+		linha++;
+		Form1->Funesdeteste1->Caption = Form3->Memo1->Lines->Strings[linha];
+		linha++;
 		linha = 3;
 		Form1->Refresh();
 		Form2->Refresh();
@@ -368,13 +375,4 @@ int varredura (int linha){
 		Form6->Refresh();
 return 0;
 }
-//=---------------------------------------------------------------------------
-void __fastcall TForm2::FormCreate(TObject *Sender)
-{
-	if (FileExists("..\\config\\interface.conf")) {
-		Memo1->Lines->LoadFromFile("..\\config\\interface.conf");
-		visualconf(lin);
-	}
-}
 //---------------------------------------------------------------------------
-
