@@ -46,18 +46,24 @@ void __fastcall TForm3::Button1Click(TObject *Sender)
 		Form2->Label1->Visible=true;
 			Form2->Height+=30;
 			Form2->Button1->Top+=30;
+			Form2->Button2->Top+=30;
+			Form2->Button3->Top+=30;
 	}
 	else if ( CheckBox1->Checked==false && Form2->ProgressBar1->Visible == true ){
 		Form2->ProgressBar1->Visible=false;
 		Form2->Label1->Visible=false;
 		Form2->Height-=30;
 		Form2->Button1->Top-=30;
+		Form2->Button2->Top-=30;
+		Form2->Button3->Top-=30;
 	}
 	if (CheckBox2->Checked==true && Form2->Edit2->Visible == false && Form2->Label3->Visible == false ) {
 		Form2->Edit2->Visible=true;
 		Form2->Label3->Visible=true;
 		Form2->Height+=34;
 		Form2->Button1->Top+=34;
+		Form2->Button2->Top+=34;
+		Form2->Button3->Top+=34;
 		Form2->Label2->Top+=34;
 		Form2->Label1->Top+=34;
 		Form2->Edit1->Top+=34;
@@ -70,6 +76,8 @@ void __fastcall TForm3::Button1Click(TObject *Sender)
 		Form2->Label1->Top-=34;
 		Form2->Height-=34;
 		Form2->Button1->Top-=34;
+		Form2->Button2->Top-=34;
+		Form2->Button3->Top-=34;
 		Form2->Edit1->Top-=34;
 		Form2->ProgressBar1->Top-=34;
 	}

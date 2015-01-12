@@ -44,7 +44,7 @@ void __fastcall TForm2::Timer1Timer(TObject *Sender)
 	else if (a != 1 && c == 0) {
 		a++;
 		if (Label5->Caption == "Padrão" | Label5->Caption == "Default") {
-			if (Form4->Memo1->Lines->Strings[0] != "Digite sua mensagem aqui! - Opcional") {
+			if (Form4->Memo1->Lines->Strings[0] != "Digite sua mensagem aqui! - Opcional" && Form4->Memo1->Lines->Strings[0] != "Type your message here - Optional") {
 				Application->BringToFront();
 				throw Exception (Form4->Memo1->Lines->Strings[0]+" "+Form4->Memo1->Lines->Strings[1]);
 			}
@@ -197,18 +197,24 @@ void define (){
 		Form2->Label1->Visible=true;
 			Form2->Height+=30;
 			Form2->Button1->Top+=30;
+			Form2->Button2->Top+=30;
+			Form2->Button3->Top+=30;
 	}
 	else if ( Form3->CheckBox1->Checked==false && Form2->ProgressBar1->Visible == true ){
 		Form2->ProgressBar1->Visible=false;
 		Form2->Label1->Visible=false;
 			Form2->Height-=30;
 			Form2->Button1->Top-=30;
+			Form2->Button2->Top-=30;
+			Form2->Button3->Top-=30;
 	}
 	if (Form3->CheckBox2->Checked==true && Form2->Edit2->Visible == false && Form2->Label3->Visible == false ) {
 		Form2->Edit2->Visible=true;
 		Form2->Label3->Visible=true;
 		Form2->Height+=34;
 		Form2->Button1->Top+=34;
+		Form2->Button2->Top+=34;
+		Form2->Button3->Top+=34;
 		Form2->Label2->Top+=34;
 		Form2->Label1->Top+=34;
 		Form2->Edit1->Top+=34;
@@ -221,6 +227,8 @@ void define (){
 		Form2->Label1->Top-=34;
 		Form2->Height-=34;
 		Form2->Button1->Top-=34;
+		Form2->Button2->Top-=34;
+		Form2->Button3->Top-=34;
 		Form2->Edit1->Top-=34;
 		Form2->ProgressBar1->Top-=34;
 	}
