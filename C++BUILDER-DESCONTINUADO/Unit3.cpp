@@ -12,7 +12,6 @@
 
 int salvar (int);
 void conferesom (String, bool);
-int varredura (int);
 
 int h=0, m=0, s=0, c=0, linha=3, linhas=5;
 float idioma;
@@ -38,6 +37,7 @@ void __fastcall TForm3::Button1Click(TObject *Sender)
 	if (Edit1->Text != "") {
 		conferesom(Edit1->Text , conf);
 		Form2->Label5->Caption = Edit1->Text;
+		Form2->Label5->Hint = Edit1->Text;
 	}
 
 	if ( CheckBox1->Checked==true && Form2->ProgressBar1->Visible == false ) {
@@ -45,18 +45,24 @@ void __fastcall TForm3::Button1Click(TObject *Sender)
 		Form2->Label1->Visible=true;
 			Form2->Height+=30;
 			Form2->Button1->Top+=30;
+			Form2->Button2->Top+=30;
+			Form2->Button3->Top+=30;
 	}
 	else if ( CheckBox1->Checked==false && Form2->ProgressBar1->Visible == true ){
 		Form2->ProgressBar1->Visible=false;
 		Form2->Label1->Visible=false;
-			Form2->Height-=30;
-			Form2->Button1->Top-=30;
+		Form2->Height-=30;
+		Form2->Button1->Top-=30;
+		Form2->Button2->Top-=30;
+		Form2->Button3->Top-=30;
 	}
 	if (CheckBox2->Checked==true && Form2->Edit2->Visible == false && Form2->Label3->Visible == false ) {
 		Form2->Edit2->Visible=true;
 		Form2->Label3->Visible=true;
 		Form2->Height+=34;
 		Form2->Button1->Top+=34;
+		Form2->Button2->Top+=34;
+		Form2->Button3->Top+=34;
 		Form2->Label2->Top+=34;
 		Form2->Label1->Top+=34;
 		Form2->Edit1->Top+=34;
@@ -69,39 +75,42 @@ void __fastcall TForm3::Button1Click(TObject *Sender)
 		Form2->Label1->Top-=34;
 		Form2->Height-=34;
 		Form2->Button1->Top-=34;
+		Form2->Button2->Top-=34;
+		Form2->Button3->Top-=34;
 		Form2->Edit1->Top-=34;
 		Form2->ProgressBar1->Top-=34;
 	}
-	if (CheckBox3->Checked==true && Application->MainFormOnTaskBar == false ) {
+/*	if (CheckBox3->Checked==true && Application->MainFormOnTaskBar == false ) {
 		Application->MainFormOnTaskBar=true;
 	}
 	else if (Application->MainFormOnTaskBar == true){
 		Application->MainFormOnTaskBar=false;
 	}
+*/
 	if ( RadioButton1->Checked == true && Form2->BorderStyle != bsToolWindow) {
 		Form2->BorderStyle=bsToolWindow;
 	}
-	if ( RadioButton2->Checked == true && Form2->BorderStyle != bsNone) {
+	else if ( RadioButton2->Checked == true && Form2->BorderStyle != bsNone) {
 		Form2->BorderStyle=bsNone;
 	}
-	if ( RadioButton3->Checked == true && Form2->BorderStyle != bsSingle) {
+	else if ( RadioButton3->Checked == true && Form2->BorderStyle != bsSingle) {
 		Form2->BorderStyle=bsSingle;
 	}
 	if (RadioButton4->Checked == true && idioma != 2) {
 		idioma = 2;
 		Memo1->Lines->LoadFromFile("..\\idiomas\\pt.idioma");
-		varredura(linha);
+		Form2->varredura(linha);
 		ShowMessage("Para completar a atualização de idioma, por favor, reinicie o programa para prevenir erros de tradução!");
 	}
 	else if (RadioButton5->Checked == true && idioma != 3) {
 		idioma = 3;
 		Memo1->Lines->LoadFromFile("..\\idiomas\\en.idioma");
-		varredura(linha);
+		Form2->varredura(linha);
 	}
 	else if (RadioButton6->Checked == true && idioma != 4) {
 		idioma = 4;
 		Memo1->Lines->LoadFromFile("..\\idiomas\\edit.idioma");
-		varredura(linha);
+		Form2->varredura(linha);
 	}
 	if (CheckBox4->Checked == true) {
 		salvar (linhas);
@@ -140,111 +149,6 @@ void __fastcall TForm3::FormShow(TObject *Sender)
 	}
 }
 //---------------------------------------------------------------------------
-int varredura (int linha){
-		Form2->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form2->Button1->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form2->Button2->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form2->Button3->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form2->Label1->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form2->Label2->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form2->Label3->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form1->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form1->Label1->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form1->Label2->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form1->Label6->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form1->Label7->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form1->Label8->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form4->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form4->Memo1->Lines->Strings[0] = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form5->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form5->Label1->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form5->Label2->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form5->Button1->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form5->Button2->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form3->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form3->GroupBox1->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form3->Button3->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form3->GroupBox2->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form3->Label3->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form3->Label4->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form3->CheckBox1->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form3->CheckBox2->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form3->CheckBox3->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form3->RadioButton1->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form3->RadioButton2->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form3->RadioButton3->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form3->GroupBox3->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form3->RadioButton4->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form3->RadioButton5->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form3->Button2->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form3->Button1->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form3->RadioButton6->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form3->Button4->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form6->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form6->Label1->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form6->Arquivo1->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form6->Salvar1->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form6->Fechar1->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form3->GroupBox4->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form3->Label6->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form3->Edit1->Hint = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form3->CheckBox4->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form2->Label4->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		Form2->Label5->Caption = Form3->Memo1->Lines->Strings[linha];
-		linha++;
-		linha = 3;
-return 0;
-}
-//---------------------------------------------------------------------------
 void __fastcall TForm3::Button4Click(TObject *Sender)
 {
 	Form6->Memo1->Lines->LoadFromFile("..\\idiomas\\edit.idioma");
@@ -255,58 +159,58 @@ int salvar (int lin){
 
 	if (Form3->CheckBox1->Checked == true) {
 		Form3->Memo2->Lines->Strings[lin] = "true";
-		linhas++;
+		lin++;
 	}
 	if (Form3->CheckBox1->Checked == false) {
 		Form3->Memo2->Lines->Strings[lin] = "false";
-		linhas++;
+		lin++;
 	}
 	if (Form3->CheckBox2->Checked == true) {
 		Form3->Memo2->Lines->Strings[lin] = "true";
-		linhas++;
+		lin++;
 	}
 	if (Form3->CheckBox2->Checked == false) {
 		Form3->Memo2->Lines->Strings[lin] = "false";
-		linhas++;
+		lin++;
 	}
 	if (Form3->CheckBox3->Checked == true) {
 		Form3->Memo2->Lines->Strings[lin] = "true";
-		linhas++;
+		lin++;
 	}
 	if (Form3->CheckBox3->Checked == false) {
 		Form3->Memo2->Lines->Strings[lin] = "false";
-		linhas++;
+		lin++;
 	}
 	if (Form3->RadioButton1->Checked == true) {
 		Form3->Memo2->Lines->Strings[lin] = "1";
-		linhas++;
+		lin++;
 	}
 	if (Form3->RadioButton2->Checked == true) {
 		Form3->Memo2->Lines->Strings[lin] = "2";
-		linhas++;
+		lin++;
 	}
 	if (Form3->RadioButton3->Checked == true) {
 		Form3->Memo2->Lines->Strings[lin] = "3";
-		linhas++;
+		lin++;
 	}
 	if (Form3->RadioButton4->Checked == true) {
 		Form3->Memo2->Lines->Strings[lin] = "1";
-		linhas++;
+		lin++;
 	}
 	if (Form3->RadioButton5->Checked == true) {
 		Form3->Memo2->Lines->Strings[lin] = "2";
-		linhas++;
+		lin++;
 	}
 	if (Form3->RadioButton6->Checked == true) {
 		Form3->Memo2->Lines->Strings[lin] = "3";
-		linhas++;
+		lin++;
 	}
 	if (Form3->Edit1->Text != "") {
 		Form3->Memo2->Lines->Strings[lin] = Form3->Edit1->Text;
-		linhas++;
+		lin++;
 	}
-		Form3->Memo2->Lines->SaveToFile("..\\config\\interface.conf");
-	linhas = 5;
+	Form3->Memo2->Lines->SaveToFile("..\\config\\interface.conf");
+	lin = 5;
 	return 0;
 }
 //---------------------------------------------------------------------------

@@ -18,7 +18,7 @@ Microcontador - Mensagem
 Digite sua mensagem aqui! - Opcional
 Microcontador
 Você esta certo?
-Este processo não pode ser desfeito
+Este processo nao pode ser desfeito
 Cancelar
 Zerar
 Microcontador - Configuracoes
@@ -45,12 +45,13 @@ Editar idioma -> Traduza a palavra substituindo-a para o idioma desejado
 Arquivo
 Salvar
 Fechar
-Opções de som
+Opcoes de som
 Som personalizado
 Ex.:"C:\usuarios\usuario\arquivo.mp3"
 Salvar configs.
 Som:
 Padrao
-Arquivo
-Funcoes de teste
+Ajuda
+Site Nintersoft
+DocWiki - Online
 //---------------------------------- Arquivo de idiomas (pt-BR) ------------------------------------
