@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>231</width>
-    <height>210</height>
+    <height>200</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -489,7 +489,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>160</y>
+      <y>150</y>
       <width>61</width>
       <height>21</height>
      </rect>
@@ -502,7 +502,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
     <property name="geometry">
      <rect>
       <x>80</x>
-      <y>160</y>
+      <y>150</y>
       <width>61</width>
       <height>21</height>
      </rect>
@@ -515,7 +515,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>160</y>
+      <y>150</y>
       <width>71</width>
       <height>21</height>
      </rect>
@@ -596,7 +596,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>110</y>
+      <y>100</y>
       <width>211</width>
       <height>21</height>
      </rect>
@@ -614,7 +614,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>130</y>
+      <y>120</y>
       <width>211</width>
       <height>23</height>
      </rect>

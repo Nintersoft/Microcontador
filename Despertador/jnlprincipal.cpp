@@ -7,9 +7,10 @@ jnlPrincipal::jnlPrincipal(QWidget *parent) :
 {
     ui->setupUi(this);
     QWidget::setWindowFlags(Qt::WindowTitleHint | Qt::CustomizeWindowHint | Qt::WindowMinimizeButtonHint | Qt::WindowCloseButtonHint);
-    this->setGeometry(120, 120, 230, 190);
+    this->setGeometry(120, 120, 230, 180);
     this->move(QApplication::desktop()->availableGeometry().center() - this->rect().center());
     this->setFixedSize(this->size());
+    reprodutor = new QMediaPlayer(this);
 }
 
 jnlPrincipal::~jnlPrincipal()
@@ -35,7 +36,12 @@ void jnlPrincipal::timerEvent(QTimerEvent *){
         if (mensagemCont == NULL) cxMens.setText("O tempo limite da contagem foi atingido!");
         else cxMens.setText(mensagemCont);
         cxMens.setIcon(QMessageBox::Information);
-        cxMens.exec();
+        if (reprodutor->isAudioAvailable())
+        {
+            reprodutor->play();
+            cxMens.exec();
+        }
+        else cxMens.exec();
         contador.stop();
     }
 }
@@ -67,6 +73,7 @@ void jnlPrincipal::on_btZerar_clicked()
             ui->bProg->setValue(ui->tmpTot->value());
         }
     }
+    else reprodutor->stop();
 }
 
 void jnlPrincipal::on_btConf_clicked()
@@ -74,7 +81,7 @@ void jnlPrincipal::on_btConf_clicked()
     if (jnlConf != NULL) jnlConf->show();
     else{
         jnlConf = new jnlConfig(this);
-        connect(jnlConf, SIGNAL(enviaTempo(int)), this, SLOT(recebeTempo(int)));
+        connect(jnlConf, SIGNAL(enviaTempo(int, bool, bool, bool, QString)), this, SLOT(recebeTempo(int, bool, bool, bool, QString)));
         jnlConf->setFixedSize(jnlConf->size());
         jnlConf->show();
 
@@ -87,7 +94,7 @@ void jnlPrincipal::on_btConf_clicked()
     }
 }
 
-void jnlPrincipal::recebeTempo(int tempo){
+void jnlPrincipal::recebeTempo(int tempo, bool barra, bool temptot, bool jan, QString md){
     if(contador.isActive())
     {
         QMessageBox cxMens;
@@ -101,6 +108,109 @@ void jnlPrincipal::recebeTempo(int tempo){
         ui->bProg->setMaximum(tempo);
         ui->bProg->setValue(tempo);
     }
+
+    if (!barra && ui->bProg->isVisible())
+    {
+        ui->bProg->hide();
+        ui->txtProg->hide();
+        ui->btConf->setGeometry(ui->btConf->geometry().x(),
+                                ui->btConf->geometry().y() - ui->bProg->height() - ui->txtProg->height(),
+                                ui->btConf->geometry().width(), ui->btConf->geometry().height());
+        ui->btZerar->setGeometry(ui->btZerar->geometry().x(),
+                                ui->btZerar->geometry().y() - ui->bProg->height() - ui->txtProg->height(),
+                                ui->btZerar->geometry().width(), ui->btZerar->geometry().height());
+        ui->btInicio->setGeometry(ui->btInicio->geometry().x(),
+                                ui->btInicio->geometry().y() - ui->bProg->height() - ui->txtProg->height(),
+                                ui->btInicio->geometry().width(), ui->btInicio->geometry().height());
+        this->setFixedHeight(this->height()- ui->bProg->height() - ui->txtProg->height());
+    }
+    else if (barra && !ui->bProg->isVisible())
+    {
+        ui->bProg->show();
+        ui->txtProg->show();
+        ui->btConf->setGeometry(ui->btConf->geometry().x(),
+                                ui->btConf->geometry().y() + ui->bProg->height() + ui->txtProg->height(),
+                                ui->btConf->geometry().width(), ui->btConf->geometry().height());
+        ui->btZerar->setGeometry(ui->btZerar->geometry().x(),
+                                ui->btZerar->geometry().y() + ui->bProg->height() + ui->txtProg->height(),
+                                ui->btZerar->geometry().width(), ui->btZerar->geometry().height());
+        ui->btInicio->setGeometry(ui->btInicio->geometry().x(),
+                                ui->btInicio->geometry().y() + ui->bProg->height() + ui->txtProg->height(),
+                                ui->btInicio->geometry().width(), ui->btInicio->geometry().height());
+        this->setFixedHeight(this->height()+ ui->bProg->height() + ui->txtProg->height());
+    }
+    if (!temptot && ui->tmpTot->isVisible())
+    {
+        ui->tmpTot->hide();
+        ui->txtTot->hide();
+
+        ui->txtProg->setGeometry(ui->txtProg->geometry().x(),
+                                ui->txtProg->geometry().y() - ui->tmpTot->height() - ui->txtTot->height(),
+                                ui->txtProg->geometry().width(), ui->txtProg->geometry().height());
+        ui->bProg->setGeometry(ui->bProg->geometry().x(),
+                                ui->bProg->geometry().y() - ui->tmpTot->height() - ui->txtTot->height(),
+                                ui->bProg->geometry().width(), ui->bProg->geometry().height());
+
+        ui->txtRes->setGeometry(ui->txtRes->geometry().x(),
+                                ui->txtRes->geometry().y() - ui->tmpTot->height() - ui->txtTot->height(),
+                                ui->txtRes->geometry().width(), ui->txtRes->geometry().height());
+        ui->tmpRes->setGeometry(ui->tmpRes->geometry().x(),
+                                ui->tmpRes->geometry().y() - ui->tmpTot->height() - ui->txtTot->height(),
+                                ui->tmpRes->geometry().width(), ui->tmpRes->geometry().height());
+
+        ui->btConf->setGeometry(ui->btConf->geometry().x(),
+                                ui->btConf->geometry().y() - ui->tmpTot->height() - ui->txtTot->height(),
+                                ui->btConf->geometry().width(), ui->btConf->geometry().height());
+        ui->btZerar->setGeometry(ui->btZerar->geometry().x(),
+                                ui->btZerar->geometry().y() - ui->tmpTot->height() - ui->txtTot->height(),
+                                ui->btZerar->geometry().width(), ui->btZerar->geometry().height());
+        ui->btInicio->setGeometry(ui->btInicio->geometry().x(),
+                                ui->btInicio->geometry().y() - ui->tmpTot->height() - ui->txtTot->height(),
+                                ui->btInicio->geometry().width(), ui->btInicio->geometry().height());
+
+        this->setFixedHeight(this->height()- ui->tmpTot->height() - ui->txtTot->height());
+    }
+    else if (temptot && !ui->tmpTot->isVisible())
+    {
+        ui->tmpTot->show();
+        ui->txtTot->show();
+
+        ui->txtProg->setGeometry(ui->txtProg->geometry().x(),
+                                ui->txtProg->geometry().y() + ui->tmpTot->height() + ui->txtTot->height(),
+                                ui->txtProg->geometry().width(), ui->txtProg->geometry().height());
+        ui->bProg->setGeometry(ui->bProg->geometry().x(),
+                                ui->bProg->geometry().y() + ui->tmpTot->height() + ui->txtTot->height(),
+                                ui->bProg->geometry().width(), ui->bProg->geometry().height());
+
+        ui->txtRes->setGeometry(ui->txtRes->geometry().x(),
+                                ui->txtRes->geometry().y() + ui->tmpTot->height() + ui->txtTot->height(),
+                                ui->txtRes->geometry().width(), ui->txtRes->geometry().height());
+        ui->tmpRes->setGeometry(ui->tmpRes->geometry().x(),
+                                ui->tmpRes->geometry().y() + ui->tmpTot->height() + ui->txtTot->height(),
+                                ui->tmpRes->geometry().width(), ui->tmpRes->geometry().height());
+
+        ui->btConf->setGeometry(ui->btConf->geometry().x(),
+                                ui->btConf->geometry().y() + ui->tmpTot->height() + ui->txtTot->height(),
+                                ui->btConf->geometry().width(), ui->btConf->geometry().height());
+        ui->btZerar->setGeometry(ui->btZerar->geometry().x(),
+                                ui->btZerar->geometry().y() + ui->tmpTot->height() + ui->txtTot->height(),
+                                ui->btZerar->geometry().width(), ui->btZerar->geometry().height());
+        ui->btInicio->setGeometry(ui->btInicio->geometry().x(),
+                                ui->btInicio->geometry().y() + ui->tmpTot->height() + ui->txtTot->height(),
+                                ui->btInicio->geometry().width(), ui->btInicio->geometry().height());
+
+        this->setFixedHeight(this->height()+ ui->tmpTot->height() + ui->txtTot->height());
+    }
+    if (!jan)
+    {
+        QMessageBox cxMens;
+        cxMens.setText("Infelizmente o Microcontador ainda não conta com o suporte de esconder-se da barra de tarefas...");
+        cxMens.setIcon(QMessageBox::Information);
+        cxMens.exec();
+    }
+
+    reprodutor->setMedia(QUrl::fromUserInput(md));
+    reprodutor->setVolume(100);
 }
 
 void jnlPrincipal::importa_mensagem(QString msg)

@@ -495,8 +495,8 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
   <widget class="QTextEdit" name="txtMensagem">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
+     <x>9</x>
+     <y>9</y>
      <width>601</width>
      <height>391</height>
     </rect>

@@ -4,6 +4,8 @@
 #include "jnlmensagem.h"
 
 #include <QMainWindow>
+#include <QMessageBox>
+#include <QFileDialog>
 
 namespace Ui {
 class jnlConfig;
@@ -22,8 +24,12 @@ private slots:
     void importa_jnlMsg(jnlMensagem*);
     void on_pushButton_clicked();
 
+    void on_bjAjMidia_clicked();
+
+    void on_btAbrirMidia_clicked();
+
 signals:
-    void enviaTempo(int);
+    void enviaTempo(int, bool, bool, bool, QString);
 
 private:
     Ui::jnlConfig *ui;

@@ -8,6 +8,7 @@
 #include <QBasicTimer>
 #include <QDesktopWidget>
 #include <QMessageBox>
+#include <QMediaPlayer>
 
 namespace Ui {
 class jnlPrincipal;
@@ -24,6 +25,7 @@ public:
 private:
     Ui::jnlPrincipal *ui;
     QBasicTimer contador;
+    QMediaPlayer* reprodutor;
     jnlConfig* jnlConf = NULL;
     jnlMensagem* jnlMsg = NULL;
     QString mensagemCont = NULL;
@@ -38,7 +40,7 @@ private slots:
     void on_btInicio_clicked();
     void on_btZerar_clicked();
     void on_btConf_clicked();
-    void recebeTempo(int);
+    void recebeTempo(int, bool, bool, bool, QString);
     void importa_mensagem(QString);
 };
 
