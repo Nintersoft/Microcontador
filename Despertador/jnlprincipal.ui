@@ -619,8 +619,11 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
       <height>23</height>
      </rect>
     </property>
+    <property name="maximum">
+     <number>0</number>
+    </property>
     <property name="value">
-     <number>100</number>
+     <number>0</number>
     </property>
     <property name="textVisible">
      <bool>false</bool>

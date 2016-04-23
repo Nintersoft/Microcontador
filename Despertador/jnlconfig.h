@@ -2,6 +2,7 @@
 #define JNLCONFIG_H
 
 #include "jnlmensagem.h"
+#include "jnlsobre.h"
 
 #include <QMainWindow>
 #include <QMessageBox>
@@ -19,21 +20,27 @@ public:
     explicit jnlConfig(QWidget *parent = 0);
     ~jnlConfig();
 
+    const static int PT = 0;
+    const static int EN = 1;
+
 private slots:
     void on_btSalvar_clicked();
-    void importa_jnlMsg(jnlMensagem*);
     void on_pushButton_clicked();
-
     void on_bjAjMidia_clicked();
-
     void on_btAbrirMidia_clicked();
+    void importa_jnlMsg(jnlMensagem*);
+    void importa_jnlSbr(jnlSobre*);
+    void troca_de_idioma();
+    void importa_config(QString, bool, bool, int);
+    void on_btSobre_clicked();
 
 signals:
-    void enviaTempo(int, bool, bool, bool, QString);
+    void enviaTempo(int, bool, bool, bool, QString, QString, bool);
 
 private:
     Ui::jnlConfig *ui;
     jnlMensagem* jnlMsg = NULL;
+    jnlSobre * jnlSbr = NULL;
 };
 
 #endif // JNLCONFIG_H

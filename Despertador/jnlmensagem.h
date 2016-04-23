@@ -18,6 +18,7 @@ public:
 
 private slots:
     void on_btSalvar_clicked();
+    void troca_de_idioma();
 
 signals:
     void exporta_mensagem(QString);
