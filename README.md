@@ -1,5 +1,4 @@
 #Microcontador
-=============
 
 Código aberto Microcontador
 - Você poderá baixar e fazer suas modificações à vontade tanto na versão descontinuada (para C++ builder), quanto na versão atual (projeto Qt), conforme a licença de código aberto Nintersoft.
@@ -20,7 +19,6 @@ Mauro Mascarenhas - Nintersoft.
 =============
 ##EN
 #Microcounter
-=============
 
 Microcounter open source code
 - You can download and make some modifications in the source code as in the discontinued version (for C++ builder - "descontinuado" in portuguese) as in the current version (Qt project), according to our Open Source Policy (by Nintersoft).
