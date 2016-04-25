@@ -16,7 +16,7 @@ jnlPrincipal::jnlPrincipal(QWidget *parent) :
     camIdioma.append("/idiomas/");
     config = new QSettings("Nintersoft","Microcontador");
 
-    lerConfig();
+    if (config->childGroups().contains("geral", Qt::CaseInsensitive)) lerConfig();
 
 }
 
@@ -112,11 +112,13 @@ void jnlPrincipal::on_btConf_clicked()
         emit exporta_jnlSbr(jnlSbr);
         jnlSbr->setFixedSize(jnlSbr->size());
 
-        connect(this, SIGNAL(exporta_config(QString,bool,bool,int)), jnlConf, SLOT(importa_config(QString,bool,bool,int)));
-        config->beginGroup("geral");
-        emit exporta_config(config->value("midia").toString(), config->value("barra").toBool(),
-                            config->value("tempo").toBool(), config->value("idioma").toInt());
-        config->endGroup();
+        if (config->childGroups().contains("geral", Qt::CaseInsensitive)){
+            connect(this, SIGNAL(exporta_config(QString,bool,bool,int)), jnlConf, SLOT(importa_config(QString,bool,bool,int)));
+            config->beginGroup("geral");
+            emit exporta_config(config->value("midia").toString(), config->value("barra").toBool(),
+                                config->value("tempo").toBool(), config->value("idioma").toInt());
+            config->endGroup();
+        }
 
         connect(this, SIGNAL(mudanca_de_idioma()), jnlConf, SLOT(troca_de_idioma()));
         connect(this, SIGNAL(mudanca_de_idioma()), jnlMsg, SLOT(troca_de_idioma()));
@@ -131,7 +133,6 @@ void jnlPrincipal::recebeTempo(int tempo, bool barra, bool temptot, bool jan, QS
     else iIdioma = jnlConfig::EN;
 
     if (salvar) salvarConfig(md, barra, temptot, iIdioma);
-    else salvarConfig(NULL, true, true, jnlConfig::PT);
 
     if(contador.isActive())
     {

@@ -19,22 +19,24 @@ QMAKE_TARGET_COMPANY = Nintersoft
 QMAKE_TARGET_PRODUCT = Microcontador
 QMAKE_TARGET_DESCRIPTION = Despertador de codigo aberto
 QMAKE_TARGET_COPYRIGHT = Copyright (c) 2016 Nintersoft
+RC_ICONS = imgs\Microcontador.ico
+RC_LANG = 0x0416
 
 SOURCES += main.cpp\
         jnlprincipal.cpp \
         jnlconfig.cpp \
         jnlmensagem.cpp \
-    jnlsobre.cpp
+        jnlsobre.cpp
 
 HEADERS  += jnlprincipal.h \
-         jnlconfig.h \
-         jnlmensagem.h \
-    jnlsobre.h
+            jnlconfig.h \
+            jnlmensagem.h \
+            jnlsobre.h
 
 FORMS    += jnlprincipal.ui \
-         jnlconfig.ui \
-    jnlmensagem.ui \
-    jnlsobre.ui
+            jnlconfig.ui \
+            jnlmensagem.ui \
+            jnlsobre.ui
 
 TRANSLATIONS = idiomas\Microcontador_pt.ts \
                idiomas\Microcontador_en.ts

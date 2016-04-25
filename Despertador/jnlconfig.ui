@@ -26,8 +26,8 @@
    <string>Configurar despertador</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>../C++BUILDER-DESCONTINUADO/Logo.ico</normaloff>../C++BUILDER-DESCONTINUADO/Logo.ico</iconset>
+   <iconset resource="estilos.qrc">
+    <normaloff>:/imgs/Microcontador.png</normaloff>:/imgs/Microcontador.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">QToolTip
@@ -867,7 +867,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
     <string>Manter configurações</string>
    </property>
    <property name="checked">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="btSobre">
@@ -884,6 +884,8 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="estilos.qrc"/>
+ </resources>
  <connections/>
 </ui>

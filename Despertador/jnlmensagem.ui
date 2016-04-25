@@ -31,6 +31,10 @@
   <property name="windowTitle">
    <string>Mensagem</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="estilos.qrc">
+    <normaloff>:/imgs/Microcontador.png</normaloff>:/imgs/Microcontador.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">QToolTip
 {
@@ -538,6 +542,8 @@ p, li { white-space: pre-wrap; }
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="estilos.qrc"/>
+ </resources>
  <connections/>
 </ui>
