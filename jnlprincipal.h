@@ -36,6 +36,7 @@ private:
     QString idiomaAtual = "pt";
     QString camIdioma = NULL;
     QTranslator tradutor;
+    QTranslator tradutorQt;
     QSettings* config;
 
 protected:

@@ -34,5 +34,5 @@ Once this project is supported by Nintersoft open source licence you either can 
 
 If you clone this directory into yours, please put a linkback to our webpage and the correct references for out team, also leaving the original README in your repository.
 
-Best wishes,
+Graciously,
 Mauro Mascarenhas - Nintersoft.

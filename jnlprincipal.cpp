@@ -271,6 +271,7 @@ void jnlPrincipal::lerIdioma(const QString &idioma)
 {
     idiomaAtual = idioma;
     trocarTradutor(tradutor, QString(camIdioma + "Microcontador_%1.qm").arg(idioma));
+    trocarTradutor(tradutorQt, QString(camIdioma + "qt_%1.qm").arg(idioma));
 }
 
 void jnlPrincipal::lerConfig()
